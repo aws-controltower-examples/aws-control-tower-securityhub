@@ -1,0 +1,11 @@
+name: cf-linter and security scan
+
+on:
+  push:
+  workflow_dispatch:
+
+jobs:
+  cloudformation-checks:
+    uses: clouddrove/github-shared-workflows/.github/workflows/cf-lint.yml@internal_560
+    with:
+      cf_file_path: ./aws-control-tower-securityhub-enabler.template
