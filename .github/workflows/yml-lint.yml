@@ -6,4 +6,4 @@ on:
 
 jobs:
   YAML-LINTER:
-    uses: clouddrove/github-shared-workflows/.github/workflows/ymllint.yml@internal_560
+    uses: clouddrove/github-shared-workflows/.github/workflows/ymllint.yml@master
