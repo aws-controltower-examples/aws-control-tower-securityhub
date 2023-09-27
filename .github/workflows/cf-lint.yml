@@ -1,7 +1,6 @@
 name: cf-linter and security scan
 
 on:
-  push:
   pull_request:
   workflow_dispatch:
 
