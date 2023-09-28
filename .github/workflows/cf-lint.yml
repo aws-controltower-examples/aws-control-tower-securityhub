@@ -1,4 +1,4 @@
-name: cf-linter and security scan
+name: cf-lint & security scan
 
 on:
   pull_request:
