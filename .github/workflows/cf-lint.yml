@@ -1,3 +1,4 @@
+---
 name: cf-lint & cf-sec
 
 on:
@@ -9,3 +10,4 @@ jobs:
     uses: clouddrove/github-shared-workflows/.github/workflows/cf-lint.yml@master
     with:
       cf_file_path: ./aws-control-tower-securityhub-enabler.template
+...
