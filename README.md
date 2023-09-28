@@ -11,7 +11,7 @@
 
 <p align="center">
 
-<a href="LICENSE.md">
+<a href="https://github.com/aws-controltower-examples/aws-control-tower-securityhub-enabler/LICENSE">
   <img src="https://img.shields.io/badge/License-APACHE-blue.svg" alt="Licence">
 </a>
 <a href="https://github.com/aws-controltower-examples/aws-control-tower-securityhub-enabler/actions/workflows/cf-lint.yml">
