@@ -7,11 +7,10 @@
 
 <p align="center" style="font-size: 1.2rem;"> 
     CloudFormation Template for SecurityHub Enabler.
-     </p>
+</p>
 
 <p align="center">
-
-<a href="https://github.com/aws-controltower-examples/aws-control-tower-securityhub-enabler/LICENSE">
+<a href="LICENSE">
   <img src="https://img.shields.io/badge/License-APACHE-blue.svg" alt="Licence">
 </a>
 <a href="https://github.com/aws-controltower-examples/aws-control-tower-securityhub-enabler/actions/workflows/cf-lint.yml">
