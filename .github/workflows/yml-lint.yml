@@ -1,3 +1,4 @@
+---
 name: YAML-LINTER
 
 on:
@@ -7,3 +8,4 @@ on:
 jobs:
   YAML-LINTER:
     uses: clouddrove/github-shared-workflows/.github/workflows/ymllint.yml@master
+...
