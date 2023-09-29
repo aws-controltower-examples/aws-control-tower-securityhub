@@ -37,8 +37,6 @@
 
 We eat, drink, sleep and most importantly love **DevOps**. We are working towards strategies for standardizing architecture while ensuring security for the infrastructure. We are strong believer of the philosophy <b>Bigger problems are always solved by breaking them into smaller manageable problems</b>. Resonating with microservices architecture, it is considered best-practice to run database, cluster, storage in smaller <b>connected yet manageable pieces</b> within the infrastructure.
 
-## Overview
-
 The AWS Control Tower SecurityHub Enabler is an AWS CloudFormation template designed to simplify the process of enabling and configuring AWS Security Hub in the security account of an AWS Control Tower environment. This template creates essential AWS resources, such as IAM roles, Lambda functions, and SNS topics, to automate the Security Hub setup based on your specified parameters.
 
 ## Prerequisites
