@@ -11,6 +11,11 @@ Parameters:
     ConstraintDescription: The Security Account ID must be a 12 character string.
     MinLength: 12
     MaxLength: 12
+  ExcludedAccounts:
+    Description: Excluded Accounts list. This list should contain Management account, Log Archive and Audit accounts at the minimum
+    Default: ""
+    MaxLength: '2000'
+    Type: String
   OrganizationId:
     Type: String
     Description: AWS Organizations ID for the Control Tower. This is used to restrict permissions to least privilege.
@@ -174,9 +179,7 @@ Resources:
       Runtime: "python3.8"
       MemorySize: 256
       Timeout: 900
-      # ###################################################################
-      ReservedConcurrentExecutions: 2
-      # ###################################################################
+      # ReservedConcurrentExecutions: 10
       Environment:
         Variables:
             ou_filter: !Ref OUFilter
@@ -184,6 +187,7 @@ Resources:
             assume_role: !Sub ${RoleToAssume}
             ct_admin_account: !Sub ${AWS::AccountId}
             sh_admin_account: !Sub ${SecurityAccountId}
+            EXCLUDED_ACCOUNTS: !Ref ExcludedAccounts
             topic: !Ref SecurityHubEnablerTopic
             aws_standard: !Ref AWSStandard
             cis_standard: !Ref CISStandard

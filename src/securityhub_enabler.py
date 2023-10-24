@@ -139,6 +139,7 @@ def get_account_list():
     aws_accounts_dict = dict()
 
     # Get List of Accounts in AWS Organization
+    excluded_accounts=os.environ['EXCLUDED_ACCOUNTS']
     org_client = session.client('organizations', region_name='us-east-1')
     accounts = org_client.list_accounts()
     LOGGER.info(f"AWS Organizations Accounts: {accounts}")
@@ -153,14 +154,17 @@ def get_account_list():
     LOGGER.debug(f"Accounts: {accounts}")
     LOGGER.info('Total accounts: {}'.format(len(accounts['Accounts'])))
     for account in accounts['Accounts']:
-        ct_account = False
-        if ct_only:
-            ct_account = is_ct_account(account['Id'], org_client=org_client)
-        # Store Accounts Matching ou filter for active accounts in a dict
-        if ct_account == ct_only and account['Status'] == 'ACTIVE':
-            account_id = account['Id']
-            email = account['Email']
-            aws_accounts_dict.update({account_id: email})
+        if account['Id'] not in excluded_accounts:
+            ct_account = False
+            if ct_only:
+                ct_account = is_ct_account(account['Id'], org_client=org_client)
+            # Store Accounts Matching ou filter for active accounts in a dict
+            if ct_account == ct_only and account['Status'] == 'ACTIVE':
+                account_id = account['Id']
+                email = account['Email']
+                aws_accounts_dict.update({account_id: email})
+        else:
+            print(f'Account excluded: {account}')
     LOGGER.info('Active accounts count: %s, Active accounts: %s' % (
         len(aws_accounts_dict.keys()), json.dumps(aws_accounts_dict)))
     return aws_accounts_dict
@@ -673,3 +677,4 @@ def lambda_handler(event, context):
                                          sort_keys=True, default=str)
             LOGGER.warning(f"Error Processing the following Accounts: "
                            f"{failed_accounts}")
+
