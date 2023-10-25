@@ -252,7 +252,7 @@ def process_security_standards(sh_client, partition, region, account):
                             f"/v/1.0.0")
     LOGGER.info(f"ARN: {aws_standard_arn}")
     # CIS Standard ARNs
-    cis_standard_arn = (f"arn:{partition}:securityhub:::ruleset/"
+    cis_standard_arn = (f"arn:{partition}:securityhub:{region}::standards/"
                         f"cis-aws-foundations-benchmark/v/1.4.0")
     cis_subscription_arn = (f"arn:{partition}:securityhub:{region}:{account}:"
                             f"subscription/cis-aws-foundations-benchmark"
