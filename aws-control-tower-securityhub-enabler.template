@@ -65,7 +65,7 @@ Parameters:
       - "No"
   CISStandard:
     Type: String
-    Description: Should Security Hub enable the CIS AWS Foundations Benchmark v1.2.0 Security Standard?
+    Description: Should Security Hub enable the CIS AWS Foundations Benchmark v1.4.0 Security Standard?
     Default: "Yes"
     AllowedValues:
       - "Yes"
@@ -73,6 +73,13 @@ Parameters:
   PCIStandard:
     Type: String
     Description: Should Security Hub enable the PCI DSS v3.2.1 Security Standard?
+    Default: "No"
+    AllowedValues:
+      - "Yes"
+      - "No"
+  NISTStandard:
+    Type: String
+    Description: Should Security Hub enable the NIST 800-53 Revision 5 Security Standard?
     Default: "No"
     AllowedValues:
       - "Yes"
@@ -192,6 +199,7 @@ Resources:
             aws_standard: !Ref AWSStandard
             cis_standard: !Ref CISStandard
             pci_standard: !Ref PCIStandard
+            nist_standard: !Ref NISTStandard
             log_level: "ERROR"
 
   SecurityHubEnablerTopic:
