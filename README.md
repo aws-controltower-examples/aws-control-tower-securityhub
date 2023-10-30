@@ -64,7 +64,8 @@ Before you proceed, ensure that you have the following prerequisites in place:
 | RoleToAssume | The IAM role to be assumed in child accounts to enable Security Hub. | String | `AWSControlTowerExecution` |
 | AWSStandard | Should Security Hub enable the AWS Foundational Security Best Practices Security Standard. | String | `Yes` |
 | CISStandard | Should Security Hub enable the CIS Security Standard. | String | `Yes` |
-| PCIStandard | Should Security Hub enable the PCI Security Standard. | String |`No` |
+| PCIStandard | Should Security Hub enable the PCI Security Standard. | String |`Yes` |
+| NISTStandard | Should Security Hub enable the NIST Security Standard. | String |`Yes` |
 
 ## Deployment
 
